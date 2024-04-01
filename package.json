@@ -1,0 +1,22 @@
+{
+  "name": "apitest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cyopen": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoxGarcia/APITest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoxGarcia/APITest/issues"
+  },
+  "homepage": "https://github.com/JoxGarcia/APITest#readme",
+  "devDependencies": {
+    "cypress": "13.7.1"
+  }
+}

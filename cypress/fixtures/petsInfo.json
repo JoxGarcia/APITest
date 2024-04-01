@@ -1,0 +1,34 @@
+{
+  "pet1": {
+    "id": 10,
+    "name": "snoopy",
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": ["http://example.com/photo-of-doggie.jpg"],
+    "tags": [
+      {
+        "id": 0,
+        "name": "tag1"
+      }
+    ],
+    "status": "available"
+  },
+  "pet2": {
+    "id": 9999,
+    "name": "doggie",
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": ["http://example.com/photo-of-nonexistent-doggie.jpg"],
+    "tags": [
+      {
+        "id": 0,
+        "name": "tag1"
+      }
+    ],
+    "status": "available"
+  }
+}
