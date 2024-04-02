@@ -187,7 +187,7 @@ context("Pet API's Automation", () => {
         const petId = 10;
         cy.request({
           method: "POST",
-          url: `http://localhost:8080/api/v3/pet/${petId}`,
+          url: `/pet/${petId}`,
           qs: {
             name: "doggie",
             status: "sold",
@@ -204,7 +204,7 @@ context("Pet API's Automation", () => {
         const invalidPetId = 999999; // Assuming this ID does not exist
         cy.request({
           method: "POST",
-          url: `http://localhost:8080/api/v3/pet/${invalidPetId}`,
+          url: `/pet/${invalidPetId}`,
           qs: {
             name: "doggie",
             status: "sold",
