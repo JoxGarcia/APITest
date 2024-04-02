@@ -126,6 +126,7 @@ context("Pet API's Automation", () => {
           });
         });
       });
+
       it("Test Case: Try to update a pet that does not exist to see how the error is handled.", () => {
         cy.fixture("petsinfo.json").then((data) => {
           const pet = data.pet2;
@@ -145,6 +146,76 @@ context("Pet API's Automation", () => {
     });
   });
 
-  describe("POST - Methods", () => {});
+  context("POST - Methods", () => {
+    describe("POST  /pet - Add a new pet to the store", () => {
+      it("Test Case: Add a new pet with all required details.", () => {
+        cy.fixture("petsinfo.json").then((data) => {
+          const pet = data.pet3;
+          cy.request({
+            method: "POST",
+            url: "/pet",
+            body: pet,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+          });
+        });
+      });
+
+      it("Test Case: Try to add a pet without providing all mandatory fields.", () => {
+        cy.fixture("petsinfo.json").then((data) => {
+          const pet = data.badPet;
+          cy.request({
+            method: "POST",
+            url: "/pet",
+            body: pet,
+            failOnStatusCode: false, // We don't want Cypress to fail the test if status code is 4xx
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }).then((response) => {
+            expect(response.status).to.be.oneOf([400, 405]); // Assuming the API returns a 400 Bad Request or 422 Unprocessable Entity for missing fields
+          });
+        });
+      });
+    });
+
+    describe("POST /pet/{petId} - Update a pet in the store with form data", () => {
+      it("Test Case: Update data for an existing pet using valid form data.", () => {
+        const petId = 10;
+        cy.request({
+          method: "POST",
+          url: `http://localhost:8080/api/v3/pet/${petId}`,
+          qs: {
+            name: "doggie",
+            status: "sold",
+          },
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body).to.have.property("id", petId);
+          expect(response.body).to.have.property("name", "doggie");
+          expect(response.body).to.have.property("status", "sold");
+        });
+      });
+
+      it("Test Case: Try to update data for a pet using an invalid ID.", () => {
+        const invalidPetId = 999999; // Assuming this ID does not exist
+        cy.request({
+          method: "POST",
+          url: `http://localhost:8080/api/v3/pet/${invalidPetId}`,
+          qs: {
+            name: "doggie",
+            status: "sold",
+          },
+          failOnStatusCode: false, // We expect this to fail as the ID is invalid
+        }).then((response) => {
+          expect(response.status).to.eq(404);
+        });
+      });
+    });
+  });
+
   describe("DELETE - Methods", () => {});
 });

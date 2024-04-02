@@ -30,5 +30,35 @@
       }
     ],
     "status": "available"
+  },
+  "pet3": {
+    "id": 11,
+    "name": "doggie",
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": ["string"],
+    "tags": [
+      {
+        "id": 0,
+        "name": "string"
+      }
+    ],
+    "status": "available"
+  },
+  "badPet": {
+    "id": 11,
+    "category": {
+      "id": 1,
+      "name": "Dogs"
+    },
+    "photoUrls": 1,
+    "tags": [
+      {
+        "id": "s",
+        "name": "string"
+      }
+    ]
   }
 }
