@@ -1,3 +1,5 @@
 node_modules
 report.html
+report2.html
+
 cypress/reports/*

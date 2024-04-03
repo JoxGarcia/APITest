@@ -1,0 +1,15 @@
+{
+  "order1": {
+    "id": 10,
+    "petId": 198772,
+    "quantity": 7,
+    "shipDate": "2023-01-01T23:59:59.999Z",
+    "status": "approved",
+    "complete": true
+  },
+  "badOrder": {
+    "quantity": 1,
+    "shipDate": "feb",
+    "complete": 1
+  }
+}
