@@ -91,33 +91,35 @@ context("Store API's Automation", () => {
     });
   });
 
-  describe("DELETE /store/order/{orderId} - Delete purchase order by ID", () => {
-    it("Test Case: Delete an existing order using a valid order ID and verify the response confirms the deletion.", () => {
-      cy.fixture("orders.json").then((validOrder) => {
-        cy.request("POST", `/store/order`, validOrder).then(
-          (createResponse) => {
-            const orderId = createResponse.body.id;
+  describe("DELETE methods", () => {
+    describe("DELETE /store/order/{orderId} - Delete purchase order by ID", () => {
+      it("Test Case: Delete an existing order using a valid order ID and verify the response confirms the deletion.", () => {
+        cy.fixture("orders.json").then((validOrder) => {
+          cy.request("POST", `/store/order`, validOrder).then(
+            (createResponse) => {
+              const orderId = createResponse.body.id;
 
-            // Actual test for deletion
-            cy.request("DELETE", `/store/order/${orderId}`).then(
-              (deleteResponse) => {
-                expect(deleteResponse.status).to.eq(200);
-                // Add any additional assertions you need to verify the deletion
-              }
-            );
-          }
-        );
+              // Actual test for deletion
+              cy.request("DELETE", `/store/order/${orderId}`).then(
+                (deleteResponse) => {
+                  expect(deleteResponse.status).to.eq(200);
+                  // Add any additional assertions you need to verify the deletion
+                }
+              );
+            }
+          );
+        });
       });
-    });
 
-    it("Test Case: Attempt to delete an order using an invalid or non-existent order ID and verify that the appropriate status code is returned for the failed operation.", () => {
-      const invalidOrderId = "invalid-id";
-      cy.request({
-        method: "DELETE",
-        url: `/store/order/${invalidOrderId}`,
-        failOnStatusCode: false,
-      }).then((response) => {
-        expect(response.status).to.be.oneOf([400, 404]);
+      it("Test Case: Attempt to delete an order using an invalid or non-existent order ID and verify that the appropriate status code is returned for the failed operation.", () => {
+        const invalidOrderId = "invalid-id";
+        cy.request({
+          method: "DELETE",
+          url: `/store/order/${invalidOrderId}`,
+          failOnStatusCode: false,
+        }).then((response) => {
+          expect(response.status).to.be.oneOf([400, 404]);
+        });
       });
     });
   });

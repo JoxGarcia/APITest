@@ -1,0 +1,68 @@
+{
+  "user1": {
+    "id": 10,
+    "username": "theuser",
+    "firstName": "John",
+    "lastName": "James",
+    "email": "john@email.com",
+    "password": "12345",
+    "phone": "1122334455",
+    "userStatus": 1
+  },
+  "user2": {
+    "id": 20,
+    "username": "user1",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane1@email.com",
+    "password": "12345",
+    "phone": "1234567890",
+    "userStatus": 1
+  },
+  "user3": {
+    "id": 21,
+    "username": "user2",
+    "firstName": "Joe",
+    "lastName": "Doe",
+    "email": "joe2@email.com",
+    "password": "54321",
+    "phone": "0987654321",
+    "userStatus": 1
+  },
+  "user4": {
+    "username": "testUser",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "testuser@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "userStatus": 1
+  },
+  "invalidUser": {
+    "username": "testInvalidLogin",
+    "firstName": "TestInvalid",
+    "lastName": "Login",
+    "email": "testinvalid@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "userStatus": 1
+  },
+  "user5": {
+    "username": "testRetrieveUser",
+    "firstName": "TestRetrieve",
+    "lastName": "User",
+    "email": "testretrieveuser@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "userStatus": 1
+  },
+  "userLogout": {
+    "username": "testLogoutUser",
+    "firstName": "TestLogout",
+    "lastName": "User",
+    "email": "testlogoutuser@example.com",
+    "password": "password123",
+    "phone": "1234567890",
+    "userStatus": 1
+  }
+}
