@@ -83,7 +83,6 @@ context("Store API's Automation", () => {
             },
             failOnStatusCode: false,
           }).then((response) => {
-            console.log(response);
             expect(response.status).to.eq(400);
           });
         });

@@ -93,22 +93,18 @@ context("Users API's Automation", () => {
         createUser(newUser).then(() => {
           cy.request("GET", `/user/${newUser.username}`).then((response) => {
             expect(response.status).to.eq(200);
-            // Verification that the user details are correct
           });
         });
       });
 
       it("Test Case: Attempt to retrieve a user with a non-existent username and verify error response.", () => {
-        // The username is deliberately set to a value that is expected to be non-existent
         const nonExistentUsername = "nonExistentUser123";
-
         cy.request({
           method: "GET",
           url: `/user/${nonExistentUsername}`,
           failOnStatusCode: false,
         }).then((response) => {
           expect(response.status).to.eq(404);
-          // Further verification of the error response for a non-existent user
         });
       });
     });
